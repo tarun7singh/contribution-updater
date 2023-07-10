@@ -10,7 +10,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production functions-framework --source=build/src/ --target=index",
     "compile": "tsc",
-    "predeploy": "npm i && npm run compile",
+    "predeploy": "npm run compile",
     "deploy": "cross-env NODE_ENV=production gcloud functions deploy contrib-updater --region=northamerica-northeast2 --runtime nodejs16 --entry-point=index --gen2 --source ./build --trigger-http",
     "watch": "concurrently \"npm run compile -- --watch\" \"nodemon --watch ./build/ --exec npm run debug\"",
     "debug": "cross-env NODE_ENV=development node --inspect node_modules/.bin/functions-framework --source=build/src/ --target=index"
